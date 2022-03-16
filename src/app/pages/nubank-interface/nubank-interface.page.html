@@ -1,0 +1,45 @@
+<title>Nubank layout</title>
+<ion-header class="ion-no-border">
+  <ion-toolbar color="light">
+    <ion-title>
+      <img src="assets/nubank/logo.png">
+      <span>Marcos</span>
+      <ion-button fill="clear" class="ion-no-border">
+        <ion-icon slot="start" name="arrow-down-outline"></ion-icon>
+      </ion-button>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" color="light">
+  <div class="background">
+    <div class="bankInformation ion-text-center">
+      <img src="assets/nubank/qrcodePix.png" class="qrcode">
+      <span>Banco <strong>000 - Nu Pagamentos S.A.</strong></span>
+      <span>Agência <strong>0000</strong></span>
+      <span>Conta <strong>00000000-0</strong></span>
+    </div>
+    <ion-list colors="light" lines="full">
+      <ion-item *ngFor="let opt of menu_options;" detail color="light">
+        <ion-icon slot="start" [name]="opt.icon"></ion-icon>
+        <ion-label>{{opt.text}}</ion-label>
+      </ion-item>
+    </ion-list>
+    <ion-button expand="block" fill="outline">
+      Sair da Conta
+    </ion-button>
+  </div>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar color="light">
+    <ion-slides [options]="slides_options">
+      <ion-slide *ngFor="let slide of rodape_options">
+        <div class="container ion-text-left">
+          <ion-icon [name]="slide.icon"></ion-icon>
+          <span>{{slide.text}}</span>
+        </div>
+      </ion-slide>
+    </ion-slides>
+  </ion-toolbar>
+</ion-footer>

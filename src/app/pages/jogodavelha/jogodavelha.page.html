@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Jogo Da Velha</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>JOGADA : {{player}}</ion-card-subtitle>
+      <ion-card-title *ngIf="Player_Winner">{{Player_Winner}} Venceu!</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col *ngFor="let val of squares; let i = index" size="4">
+            <app-bloco-opt-velha [value]="val" (click)="makeSelect(i)" ></app-bloco-opt-velha>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+    </ion-card-content>
+  </ion-card>
+  
+  <ion-grid>
+    <ion-row>
+      <ion-col size="3"></ion-col>
+      <ion-col size="6">
+        <ion-button (click)="newGame()" expand="block">
+          Novo Jogo
+        </ion-button>
+      </ion-col>
+      <ion-col size="3"></ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

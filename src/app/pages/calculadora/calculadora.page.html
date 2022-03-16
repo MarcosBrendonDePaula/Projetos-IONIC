@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>calculadora</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <div class="display">
+          <span class="textArea">{{text}}</span>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col *ngFor="let opt of strotura;" size="3">
+        <app-calc-button [ButtonNum]="opt" (click)="addKey(opt)"></app-calc-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-button (click)="limpar()" expand="block" shape="round">
+    LIMPAR
+  </ion-button>
+</ion-content>

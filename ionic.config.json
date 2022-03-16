@@ -1,0 +1,8 @@
+{
+  "name": "metronomo",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

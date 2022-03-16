@@ -1,0 +1,71 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Metronomo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <div class="Menu"> 
+      <ion-row>
+        <ion-col size="3">
+          <ion-button (click)="remBpm()" expand="block" color="warning">
+            <ion-icon  name="remove-outline"></ion-icon>
+          </ion-button>
+        </ion-col >
+        <ion-col class="bpm_value" size="6">
+          <span>{{bpm}}BPM</span>
+        </ion-col>
+        <ion-col size="3">
+          <ion-button (click)="addBpm()" expand="block" color="success">
+            <ion-icon name="add-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </div>
+
+    <ion-row class="Menu">
+      <ion-col size="4">
+      </ion-col >
+      <ion-col>
+
+        <ion-button (click)="metronomeSwitch()" expand="block" color="dark" *ngIf="!Vars.playing">
+          <ion-icon name="play-outline"></ion-icon>
+        </ion-button>
+        <ion-button (click)="metronomeSwitch()" expand="block" color="dark" *ngIf="Vars.playing">
+          <ion-icon name="pause-outline"></ion-icon>
+        </ion-button>
+        
+      </ion-col>
+      <ion-col size="4">
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-range
+          min="1" max="{{bpm_limit}}"
+          dualKnobs="false" pin="true"
+          snaps="true" step="1"
+          ticks="true" value="{{bpm}}"
+          color="primary"
+          (ionChange)="bpmRangeEdit($event)"
+          class="bpmRange"  
+        >
+        </ion-range>
+      </ion-col>
+    </ion-row>
+    <ion-row class="TapBpm">
+      <ion-col size="6">
+        <ion-button (click)="TapBpm()" (keyup)="TapBpm()" expand="block" color="success">
+          TAPBPM
+        </ion-button>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button (click)="ResetTapBpm()" expand="block" color="danger">
+          RESET
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

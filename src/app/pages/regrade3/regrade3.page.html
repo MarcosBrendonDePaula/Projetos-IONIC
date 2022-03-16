@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Regra de 3</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [color]="atual_thema">
+  <div class="tema_selector" >
+    <span>Mudar Tema</span>
+    <ion-toggle (ionChange)="changetheme()"></ion-toggle>
+  </div>
+  <ion-card [color]="atual_thema">
+    <ion-card-header >
+      <ion-card-subtitle>Seleção de modo</ion-card-subtitle>
+      <ion-card-title>
+        <div class="flex">
+          <span>Inversamente:</span>
+          <ion-toggle [(ngModel)]="inverso" (ionChange)="recalcular()"></ion-toggle>
+        </div>
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6">
+            <div class="inp_field">
+              <ion-input (ionChange)="recalcular()" [(ngModel)]="values[0]" type="number" placeholder="0"></ion-input>
+            </div>
+          </ion-col>
+          <ion-col size="6">
+            <div class="inp_field">
+              <ion-input (ionChange)="recalcular()" [(ngModel)]="values[1]" type="number" placeholder="0"></ion-input>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6">
+            <div class="inp_field">
+              <ion-input (ionChange)="recalcular()" [(ngModel)]="values[2]" type="number" placeholder="0"></ion-input>
+            </div>
+          </ion-col>
+          <ion-col size="6">
+            <div class="inp_field">
+              <ion-input [(ngModel)]="values[3]" type="text" placeholder="X"></ion-input>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

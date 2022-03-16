@@ -1,0 +1,3 @@
+<ion-button color="primary" *ngIf="!value" expand="full">_</ion-button>
+<ion-button color="success" *ngIf="value == 'X'" expand="full">{{value}}</ion-button>
+<ion-button color="danger" *ngIf="value == 'O'" expand="full">{{value}}</ion-button>
