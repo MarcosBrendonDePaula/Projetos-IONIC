@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CalcapiService} from '../../services/calculadora/calcapi.service'
+import {HttpResponse } from '@capacitor-community/http';
+
 @Component({
   selector: 'app-calculadora',
   templateUrl: './calculadora.page.html',
@@ -31,8 +33,8 @@ export class CalculadoraPage implements OnInit {
       }
       case "=":{
         this.CalcApi.calcular(this.text)
-        .then((res)=>{
-          this.text = String(res) 
+        .then((res:HttpResponse)=>{
+          this.text = String(res.data) 
         })
         .catch((err)=>{
           console.log(err)
