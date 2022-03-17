@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./button.component.scss'],
 })
 export class ButtonComponent implements OnInit {
-  special_keys = ["(",")","/","X","+","-","+",",","√","=","«"];
+  special_keys = ["(",")","/","*","+","-","+",",","√","=","«"];
   color:any = "";
 
   @Input() ButtonNum = ""
@@ -17,7 +17,6 @@ export class ButtonComponent implements OnInit {
   }
 
   UpdateColor(){
-    console.log(this.special_keys.indexOf(this.ButtonNum))
     if (this.special_keys.indexOf(this.ButtonNum) != -1) { 
       this.color = "danger";
       return

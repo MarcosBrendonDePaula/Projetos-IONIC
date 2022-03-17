@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {CalcapiService} from '../../services/calculadora/calcapi.service'
 @Component({
   selector: 'app-calculadora',
   templateUrl: './calculadora.page.html',
@@ -8,17 +8,17 @@ import { Component, OnInit } from '@angular/core';
 export class CalculadoraPage implements OnInit {
   text:string = "";
   
-  special_keys = ["(",")","/","X","+","-","+",",","√","=","«"];
+  special_keys = ["(",")","/","*","+","-","+",",","√","=","«"];
 
   strotura = [
-    "(",")","«","X",
+    "(",")","«","*",
     "7","8","9","/",
     "4","5","6","+",
     "1","2","3","-",
     "0","","=",","
   ]
 
-  constructor() { }
+  constructor(private CalcApi:CalcapiService) { }
 
   ngOnInit() {
   }
@@ -30,6 +30,13 @@ export class CalculadoraPage implements OnInit {
         return
       }
       case "=":{
+        this.CalcApi.calcular(this.text)
+        .then((res)=>{
+          this.text = String(res) 
+        })
+        .catch((err)=>{
+          console.log(err)
+        })
         return
       }
     }
