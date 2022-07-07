@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class BlocoOptVelhaComponent implements OnInit {
 
-  @Input() value: 'X' | 'O';
+  @Input() value: string;
   constructor() { }
 
 
